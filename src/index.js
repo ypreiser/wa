@@ -1,6 +1,5 @@
 const express = require("express")
 const messageRouter = require('./routers/messageRouter')
-const whatsappclient = require('./services/WhatsappClient')
 
 const app = express()
 app.use(express.json())
