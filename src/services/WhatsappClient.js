@@ -45,12 +45,20 @@ function startClient(id, callback) { // Add a callback function
   }
   
 function sendMessage(phoneNumber, message, clientId, file) {
+  console.log(phoneNumber, message, clientId);
+  
+  try {
+    
     if(file) {
         const messageFile = new MessageMedia(file.mimetype, file.buffer.toString('base64'))
         clients[Number(clientId)].sendMessage(phoneNumber, messageFile)
     } else {
         clients[clientId].sendMessage(phoneNumber, message);
     }
+  } catch (error) {
+   console.log(error);
+    
+  }
 }
 
 module.exports = { startClient, sendMessage }
